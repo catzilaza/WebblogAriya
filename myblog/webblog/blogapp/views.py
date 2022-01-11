@@ -9,7 +9,7 @@ def index(request):
     posts = Post.objects.all()
     
     pagesName = ['','/blog/seminar99708Jan', '/blog/seminar99708Dec', '/blog/seminar99709Dec',
-                 '/blog/phuket', '/blog/tempPage5', '/blog/tempPage6']    
+                 '/blog/phuket', '/blog/resources_research', '/blog/checkout_payment']    
     
     pagesDict = {}
     for post in posts:
