@@ -14,12 +14,7 @@ def index(request):
     
     pagesDict = {}
     for post in posts:
-        pagesDict.update({post.id : pagesName[post.id]})
-        print('post : ', post)
-        print('pagesDict : ', pagesDict)
-        print('pagesDict.get() : ', pagesDict.get(post.id))       
-    
-    testDict = {posts}
+        pagesDict.update({post.id : pagesName[post.id]})   
 
     return render(request, 'index.html', 
         {
