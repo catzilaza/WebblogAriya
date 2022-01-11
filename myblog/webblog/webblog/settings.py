@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blogapp.apps.BlogappConfig', #อ้างอิงจาก ชื่อ blogapp->app.py>.BlogappConfig()
-    'bootstrap4',
+    'blogapp.apps.BlogappConfig',
+    'bootstrap4',    
 ]
 
 MIDDLEWARE = [
