@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{% static 'pictures/icon_favorite.png' %}">
+
+  <title>My Blog</title>
+
+  {# Load the tag library #} 
+  {% load bootstrap4 %} 
+  {# Load CSS and JavaScript  #}
+  {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} 
+  {# Display django.contrib.messages as Bootstrap alerts #}
+  {% bootstrap_messages %}
+
+    
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Blog ผลงาน Django Framwork</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/blog">
+            <img src="{% static 'pictures/icon_home.png' %}" alt="pic" width = "30pc" height="30px">
+            Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.stou.ac.th/main/index.html">
+            <img src="{% static 'pictures/icon_monitor.png' %}" alt="pic" width = "35pc" height="35px">
+            WebSite STOU 
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3"><img src="{% static 'pictures/scilogo.png' %}" alt="pics"></h1>
+      <img src="{% static 'pictures/sciteacher.png' %}" alt="pic1" width="1280" height="512">
+    </div>
+  </div>
+
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <footer class="container text-center">
+    <p>&copy; SciTech STOU 2022</p>
+  </footer>

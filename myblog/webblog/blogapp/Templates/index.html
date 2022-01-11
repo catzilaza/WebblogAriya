@@ -1,84 +1,128 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{% static 'pictures/icon_favorite.png' %}">
 
-    <title>My Blog</title>
+  <title>My Blog</title>
 
-    {# Load the tag library #} {% load bootstrap4 %} {# Load CSS and JavaScript
-    #} {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {# Display
-    django.contrib.messages as Bootstrap alerts #} {% bootstrap_messages %}
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Blog ผลงานอาจารย์</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  {# Load the tag library #} 
+  {% load bootstrap4 %} 
+  {# Load CSS and JavaScript  #}
+  {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} 
+  {# Display django.contrib.messages as Bootstrap alerts #}
+  {% bootstrap_messages %}
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-    </nav>
+</head>
 
-    <main role="main">
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Blog ผลงานและงานวิจัย</h1>
-        </div>
-      </div>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Blog ผลงาน Django Framwork</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/blog">
+            <img src="{% static 'pictures/icon_home.png' %}" alt="pic" width = "30pc" height="30px">
+            Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="https://www.stou.ac.th/main/index.html">
+            <img src="{% static 'pictures/icon_monitor.png' %}" alt="pic" width = "35pc" height="35px">
+            WebSite STOU 
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    
+    <div class="jumbotron">
       <div class="container">
-        <!-- Example row of columns -->
-        {% for post in test %}
+        <h1 class="display-3"><img src="{% static 'pictures/scilogo.png' %}" alt="pics"></h1>
+        <img src="{% static 'pictures/sciteacher.png' %}" alt="pic1" width="1280" height="512">
+      </div>
+    </div>
+
+    <div class="album py-5 bg-dark">
+      <div class="container-fluid">
+        <!-- Example row of columns -->        
         <div class="row pb-3">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header">ผลงานและงานวิจัย</div>
-              <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text">{{post.body}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+          {% for post in test %}
+          <div class="col py-3">            
+            <div class="card text-center">
+              <div class="card-header">
+                <h2>แสดงผลหัวข้อที่ {{post.id}}</h2>
+              </div>
+              <div class="card-body"><!--'|add:del.dataset_id|add:'-->
+                <img src="{% static 'pictures/pic1.jpg' %}" width="512" height="256" alt="pics">          
+                <br><br>
+                <h4 class="card-title">{{post.title}}</h4>
+                  <br>
+                  <p class="card-text">
+                  <h5>{{post.body}}</h5>
+                  </p>
+                  <br><br><!--/blog/seminar99708Jan-->  
+                  {% if post.id == 1 %}                                 
+                  <a href="{{pagesDict.1}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a>
+                  {% elif post.id == 2 %}
+                  <a href="{{pagesDict.2}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a>
+                  {% elif post.id == 3 %}
+                  <a href="{{pagesDict.3}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a>
+                  {% elif post.id == 4 %}
+                  <a href="{{pagesDict.4}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a>
+                  {% elif post.id == 5 %}
+                  <a href="{{pagesDict.5}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a> 
+                  {% else %}  
+                  <a href="{{pagesDict.6}}" class="btn btn-primary">
+                    <img src="{% static 'pictures/icon_favorite1.png' %}" alt="go">CLICK GO
+                  </a>  
+                  {% endif %}
+                    
+                  </a>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-
-        {% endfor %}
       </div>
-      <!-- /container -->
-    </main>
+    </div>
+    <!-- /container -->
+   
+  </main>
 
-    <footer class="container">
-      <p>&copy; SciTech STOU 2022</p>
-    </footer>
-  </body>
+  <footer class="container text-center">
+    <p>&copy; SciTech STOU 2022</p>
+  </footer>
+</body>
+
 </html>
+

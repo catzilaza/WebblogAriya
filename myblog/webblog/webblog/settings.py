@@ -56,7 +56,7 @@ ROOT_URLCONF = 'webblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],#BASE_DIR / 'blogapp/Templates'
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +125,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',#"/home/special.polls.com/polls/static"
+    #,"/home/polls.com/polls/static"
+    #,"/opt/webfiles/common"
+]
